@@ -108,6 +108,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="URk-Uz-X5B"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="rog-9m-EKu" id="vEQ-Ab-dUh"/>
+                        <outlet property="registerButton" destination="YIg-xz-Zjd" id="GGs-XH-ZP9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJc-ns-ynT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

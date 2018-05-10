@@ -16,6 +16,7 @@
 		54B1084420A44C7F00F81E69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B1084220A44C7F00F81E69 /* LaunchScreen.storyboard */; };
 		54B1084C20A44CA400F81E69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B1084B20A44CA400F81E69 /* GoogleService-Info.plist */; };
 		54B1084E20A4506100F81E69 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B1084D20A4506100F81E69 /* RemoteConfigDefaults.plist */; };
+		54B7B53B20A4674100249648 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7B53A20A4674100249648 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		54B1084520A44C7F00F81E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54B1084B20A44CA400F81E69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54B1084D20A4506100F81E69 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		54B7B53A20A4674100249648 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		80B6E7CE6D0B2E9F40C7CDC0 /* Pods-ChatTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatTalk/Pods-ChatTalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				54B1084B20A44CA400F81E69 /* GoogleService-Info.plist */,
 				54B1084D20A4506100F81E69 /* RemoteConfigDefaults.plist */,
 				5421C5EE20A4560400F93855 /* LoginViewController.swift */,
+				54B7B53A20A4674100249648 /* RegisterViewController.swift */,
 			);
 			path = ChatTalk;
 			sourceTree = "<group>";
@@ -176,18 +179,22 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChatTalk/Pods-ChatTalk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +245,7 @@
 				5421C5EF20A4560400F93855 /* LoginViewController.swift in Sources */,
 				54B1083C20A44C7E00F81E69 /* ViewController.swift in Sources */,
 				54B1083A20A44C7E00F81E69 /* AppDelegate.swift in Sources */,
+				54B7B53B20A4674100249648 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,10 +393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5W9SHGAJVE;
 				INFOPLIST_FILE = ChatTalk/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssh.ChatTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -404,10 +409,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5W9SHGAJVE;
 				INFOPLIST_FILE = ChatTalk/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssh.ChatTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

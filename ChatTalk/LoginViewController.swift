@@ -28,13 +28,23 @@ class LoginViewController: UIViewController {
             make.height.equalTo(20)
         }
         
+    
+        
         color = remoteConfig["splash_background"].stringValue
         
         statusBar.backgroundColor = UIColor(hex: color)
         loginButton.backgroundColor = UIColor(hex: color)
         registerButton.backgroundColor = UIColor(hex: color)
+        
+        //registerButton.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
     }
 
+//    @objc func goToRegister() {
+//
+//        let view = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+//
+//        self.present(view, animated: true, completion: nil)
+//    }
 
    
 

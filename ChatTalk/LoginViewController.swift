@@ -12,6 +12,8 @@ import Firebase
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginEmailTextField: UITextField!
+    @IBOutlet weak var loginPasswordTextField: UITextField!
     
     let remoteConfig = RemoteConfig.remoteConfig()
     
@@ -19,6 +21,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        try! Auth.auth().signOut() // 시작시 자동으로 로그아웃
+        
         
          // statusbar 설정
         let statusBar = UIView()
@@ -37,7 +42,34 @@ class LoginViewController: UIViewController {
         registerButton.backgroundColor = UIColor(hex: color)
         
         //registerButton.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
+        
+//        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        
+        // 로그인시 화면 전환
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//
+//            if user != nil {
+//                let view = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+//                self.present(view, animated: true, completion: nil)
+//            }
+//        }
     }
+    
+//    @objc func loginButtonPressed() {
+//
+//        Auth.auth().signIn(withEmail: loginEmailTextField.text!, password: loginPasswordTextField.text!) { (user, error) in
+//            if error != nil {
+//                let alert = UIAlertController(title: "Error", message: error.debugDescription, preferredStyle: UIAlertControllerStyle.alert)
+//
+//                alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
+//
+//                self.present(alert, animated: true, completion: nil)
+//            } else {
+//                print("Log in successful")
+//
+//            }
+//        }
+//    }
 
 //    @objc func goToRegister() {
 //
@@ -46,6 +78,27 @@ class LoginViewController: UIViewController {
 //        self.present(view, animated: true, completion: nil)
 //    }
 
-   
+    // 로그인버튼 구현
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        
+        Auth.auth().signIn(withEmail: loginEmailTextField.text!, password: loginPasswordTextField.text!) { (user, error) in
+            // 로그인 실패시
+            if error != nil {
+                let alert = UIAlertController(title: "Error", message: error.debugDescription, preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            // 로그인 성공시
+            } else {
+                print("login")
+            }
+        }
+        
+        
+        
+        
+    }
+    
 
 }

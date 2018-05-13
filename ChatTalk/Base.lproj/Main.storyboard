@@ -212,19 +212,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJX-in-fe4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="-2"/>
+            <point key="canvasLocation" x="1840.5797101449277" y="-2.4456521739130435"/>
         </scene>
-        <!--People-->
+        <!--Friends-->
         <scene sceneID="w4j-Ql-qgs">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="i0s-nM-X8P" customClass="MainViewController" customModule="ChatTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="i0s-nM-X8P" customClass="FriendsViewController" customModule="ChatTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YI3-dN-S4f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gZu-81-sax"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="People" id="VgJ-zM-RND"/>
+                    <tabBarItem key="tabBarItem" title="Friends" id="VgJ-zM-RND"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNF-4i-6Ng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,6 +268,7 @@
                 <tabBarController storyboardIdentifier="MainViewTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="LDX-ml-7kr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nd2-wD-H8a">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

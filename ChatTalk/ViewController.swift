@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         remoteConfig = RemoteConfig.remoteConfig()
-        remoteConfig.configSettings = RemoteConfigSettings(developerModeEnabled: true)
+        remoteConfig.configSettings = RemoteConfigSettings(developerModeEnabled: true)!
         
         // 서버와 연결 안될시
         remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
@@ -35,8 +35,6 @@ class ViewController: UIViewController {
             }
             self.displayWelcome()
         }
-
-        
         
         // 화면 실행시 첫 로딩 화면
         self.view.addSubview(box)
@@ -72,11 +70,7 @@ class ViewController: UIViewController {
             
         }
         self.view.backgroundColor = UIColor(hex: color!)
-        
     }
- 
-
-
 }
 
 // https://crunchybagel.com/working-with-hex-colors-in-swift-3/

@@ -24,7 +24,6 @@ class LoginViewController: UIViewController {
         
         try! Auth.auth().signOut() // 시작시 자동으로 로그아웃
         
-        
          // statusbar 설정
         let statusBar = UIView()
         self.view.addSubview(statusBar)
@@ -33,51 +32,13 @@ class LoginViewController: UIViewController {
             make.height.equalTo(20)
         }
         
-    
-        
         color = remoteConfig["splash_background"].stringValue
-        
         statusBar.backgroundColor = UIColor(hex: color)
         loginButton.backgroundColor = UIColor(hex: color)
         registerButton.backgroundColor = UIColor(hex: color)
-        
-        //registerButton.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
-        
-//        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-        
-        // 로그인시 화면 전환
-//        Auth.auth().addStateDidChangeListener { (auth, user) in
-//
-//            if user != nil {
-//                let view = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-//                self.present(view, animated: true, completion: nil)
-//            }
-//        }
+
     }
     
-//    @objc func loginButtonPressed() {
-//
-//        Auth.auth().signIn(withEmail: loginEmailTextField.text!, password: loginPasswordTextField.text!) { (user, error) in
-//            if error != nil {
-//                let alert = UIAlertController(title: "Error", message: error.debugDescription, preferredStyle: UIAlertControllerStyle.alert)
-//
-//                alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
-//
-//                self.present(alert, animated: true, completion: nil)
-//            } else {
-//                print("Log in successful")
-//
-//            }
-//        }
-//    }
-
-//    @objc func goToRegister() {
-//
-//        let view = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-//
-//        self.present(view, animated: true, completion: nil)
-//    }
-
     // 로그인버튼 구현
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
@@ -94,11 +55,5 @@ class LoginViewController: UIViewController {
                 print("login")
             }
         }
-        
-        
-        
-        
     }
-    
-
 }

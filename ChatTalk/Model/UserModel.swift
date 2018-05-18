@@ -8,10 +8,12 @@
 
 import Foundation
 
+@objcMembers
 class UserModel: NSObject {
     
-    //var userProfileImages : String?
-    var userName : String?
     
-    
+    var profileImageUrl :String?
+    var userName :String?
+    var uid : String?
 }
+

@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		052465B549D77EB0BD3FBDA5 /* Pods_ChatTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CB619A1B844F325BE5CCE3 /* Pods_ChatTalk.framework */; };
 		5421C5EF20A4560400F93855 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5421C5EE20A4560400F93855 /* LoginViewController.swift */; };
-		54A0628920A587B100F30927 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0628820A587B100F30927 /* FriendsViewController.swift */; };
+		545C81CF20AF54E5000D81A2 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C81CE20AF54E5000D81A2 /* ChatModel.swift */; };
+		545C81D120AF5708000D81A2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C81D020AF5708000D81A2 /* ChatViewController.swift */; };
 		54B1083A20A44C7E00F81E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B1083920A44C7E00F81E69 /* AppDelegate.swift */; };
 		54B1083C20A44C7E00F81E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B1083B20A44C7E00F81E69 /* ViewController.swift */; };
 		54B1083F20A44C7E00F81E69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B1083D20A44C7E00F81E69 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 		54B1084420A44C7F00F81E69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B1084220A44C7F00F81E69 /* LaunchScreen.storyboard */; };
 		54B1084C20A44CA400F81E69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B1084B20A44CA400F81E69 /* GoogleService-Info.plist */; };
 		54B1084E20A4506100F81E69 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B1084D20A4506100F81E69 /* RemoteConfigDefaults.plist */; };
+		54B302B020AB205E00634974 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B302AF20AB205E00634974 /* FriendsViewController.swift */; };
 		54B7B53B20A4674100249648 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7B53A20A4674100249648 /* RegisterViewController.swift */; };
 		54C9C67620A83EFE00903B58 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C9C67520A83EFE00903B58 /* UserModel.swift */; };
 /* End PBXBuildFile section */
@@ -25,7 +27,8 @@
 		02CB619A1B844F325BE5CCE3 /* Pods_ChatTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06977CD93F1FD7B4205F1F8F /* Pods-ChatTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatTalk/Pods-ChatTalk.release.xcconfig"; sourceTree = "<group>"; };
 		5421C5EE20A4560400F93855 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		54A0628820A587B100F30927 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		545C81CE20AF54E5000D81A2 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		545C81D020AF5708000D81A2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		54B1083620A44C7E00F81E69 /* ChatTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B1083920A44C7E00F81E69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54B1083B20A44C7E00F81E69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		54B1084520A44C7F00F81E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54B1084B20A44CA400F81E69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54B1084D20A4506100F81E69 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		54B302AF20AB205E00634974 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		54B7B53A20A4674100249648 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		54C9C67520A83EFE00903B58 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		80B6E7CE6D0B2E9F40C7CDC0 /* Pods-ChatTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatTalk/Pods-ChatTalk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		545C81CD20AF54C8000D81A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54C9C67520A83EFE00903B58 /* UserModel.swift */,
+				545C81CE20AF54E5000D81A2 /* ChatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		54B1082D20A44C7E00F81E69 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		54B1083820A44C7E00F81E69 /* ChatTalk */ = {
 			isa = PBXGroup;
 			children = (
+				545C81CD20AF54C8000D81A2 /* Model */,
 				54B1083920A44C7E00F81E69 /* AppDelegate.swift */,
 				54B1083B20A44C7E00F81E69 /* ViewController.swift */,
 				54B1083D20A44C7E00F81E69 /* Main.storyboard */,
@@ -92,8 +106,8 @@
 				54B1084D20A4506100F81E69 /* RemoteConfigDefaults.plist */,
 				5421C5EE20A4560400F93855 /* LoginViewController.swift */,
 				54B7B53A20A4674100249648 /* RegisterViewController.swift */,
-				54A0628820A587B100F30927 /* FriendsViewController.swift */,
-				54C9C67520A83EFE00903B58 /* UserModel.swift */,
+				54B302AF20AB205E00634974 /* FriendsViewController.swift */,
+				545C81D020AF5708000D81A2 /* ChatViewController.swift */,
 			);
 			path = ChatTalk;
 			sourceTree = "<group>";
@@ -187,6 +201,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChatTalk/Pods-ChatTalk-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
@@ -197,6 +212,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
@@ -250,10 +266,12 @@
 			files = (
 				5421C5EF20A4560400F93855 /* LoginViewController.swift in Sources */,
 				54B1083C20A44C7E00F81E69 /* ViewController.swift in Sources */,
+				545C81D120AF5708000D81A2 /* ChatViewController.swift in Sources */,
+				54B302B020AB205E00634974 /* FriendsViewController.swift in Sources */,
+				545C81CF20AF54E5000D81A2 /* ChatModel.swift in Sources */,
 				54B1083A20A44C7E00F81E69 /* AppDelegate.swift in Sources */,
 				54B7B53B20A4674100249648 /* RegisterViewController.swift in Sources */,
 				54C9C67620A83EFE00903B58 /* UserModel.swift in Sources */,
-				54A0628920A587B100F30927 /* FriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

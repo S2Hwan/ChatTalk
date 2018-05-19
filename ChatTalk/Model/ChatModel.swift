@@ -28,7 +28,7 @@ class ChatModel: Mappable {
         public required init?(map: Map) {
             
         }
-        public  func mapping(map: Map) {
+        public func mapping(map: Map) {
             uid <- map["uid"]
             message <- map["message"]
         }

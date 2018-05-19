@@ -17,17 +17,54 @@ class ChatViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     var uid : String?
     var chatRoomUid : String?
+    
     var comments : [ChatModel.Comment] = []
+    var userModel : UserModel?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let view = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
-        view.textLabel?.text = self.comments[indexPath.row].message
-        return view
+        
+        if(self.comments[indexPath.row].uid == uid) {
+            let view = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCell
+            view.labelMessage.text = self.comments[indexPath.row].message
+            view.labelMessage.numberOfLines = 0
+            return view
+        } else {
+            
+            let view = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! DestinationMessageCell
+            view.nameLabel.text = userModel?.userName
+            view.labelMessage.text = self.comments[indexPath.row].message
+            view.labelMessage.numberOfLines = 0
+            
+            let url = URL(string: (self.userModel?.profileImageUrl)!)
+            URLSession.shared.dataTask(with: url!) { (data, response, error) in
+                DispatchQueue.main.sync {
+                    view.imageViewProfile.image = UIImage(data: data!)
+                    view.imageViewProfile.layer.cornerRadius = view.imageViewProfile.frame.width/2
+                    view.imageViewProfile.clipsToBounds = true
+                }
+            }.resume()
+            return view
+        }
+        
+
+        
+        
+       return UITableViewCell()
+        
+      
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    
+    
+    
     
     public var destinationUid :String? // 나중에 내가 채팅할 대상의 uid
     override func viewDidLoad() {
@@ -35,14 +72,20 @@ class ChatViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         uid = Auth.auth().currentUser?.uid
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
         checkChatRoom()
+        
     }
     
+    
     @objc func createRoom(){
-        let createRoomInfo : Dictionary<String,Any> = [ "users" : [uid!: true, destinationUid! :true]]
+        let createRoomInfo : Dictionary<String,Any> = [ "users" : [
+            uid!: true,
+            destinationUid! :true
+            ]
+        ]
+        
         
         if(chatRoomUid == nil){
             self.sendButton.isEnabled = false
-            
             // 방 생성 코드
             Database.database().reference().child("chatrooms").childByAutoId().setValue(createRoomInfo, withCompletionBlock: { (err, ref) in
                 if(err == nil){
@@ -51,16 +94,24 @@ class ChatViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             })
             
         }else{
-            let value :Dictionary<String,Any> = ["uid" : uid!, "message" : textFieldMessage.text!]
+            let value :Dictionary<String,Any> = [
+                
+                "uid" : uid!,
+                "message" : textFieldMessage.text!
+            ]
             
             Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
         }
+        
+        
+        
+        
+        
     }
-    
     func checkChatRoom(){
         
-        Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value) { (Datasnapshot) in
-            for item in Datasnapshot.children.allObjects as! [DataSnapshot]{
+        Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value,with: { (datasnapshot) in
+            for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                 
                 if let chatRoomdic = item.value as? [String:AnyObject]{
                     
@@ -68,22 +119,77 @@ class ChatViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                     if(chatModel?.users[self.destinationUid!] == true){
                         self.chatRoomUid = item.key
                         self.sendButton.isEnabled = true
-                        self.getMessageList()
+                        self.getDestinationInfo()
                     }
                 }
+                
+                
+                
             }
-        }
+        })
         
     }
-
+    // 유저 정보 받아오기
+    func getDestinationInfo() {
+        
+        Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value) { (Datasnapshot) in
+            self.userModel = UserModel()
+            self.userModel?.setValuesForKeys(Datasnapshot.value as! [String:Any])
+            self.getMessageList()
+        }
+        
+        
+        
+    }
+    
+    
     func getMessageList(){
-        Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments").observe(DataEventType.value) { (Datasnapshot) in
+        
+        Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments").observe(DataEventType.value, with: { (datasnapshot) in
             self.comments.removeAll()
-            for item in Datasnapshot.children.allObjects as! [DataSnapshot]{
+            
+            for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                 let comment = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
                 self.comments.append(comment!)
             }
             self.tableView.reloadData()
-        }
-    }
+            
+            
+            
+        })
 }
+}
+
+class MyMessageCell : UITableViewCell {
+    
+    @IBOutlet weak var labelMessage: UILabel!
+    
+    
+}
+
+class DestinationMessageCell : UITableViewCell {
+    
+    @IBOutlet weak var imageViewProfile: UIImageView!
+    @IBOutlet weak var labelMessage: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+}
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

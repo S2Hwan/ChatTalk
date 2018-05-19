@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         
         try! Auth.auth().signOut() // 시작시 자동으로 로그아웃
         
-         // statusbar 설정
+        // statusbar 설정
         let statusBar = UIView()
         self.view.addSubview(statusBar)
         statusBar.snp.makeConstraints { (make) in

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         
         FirebaseApp.configure() // 앱을 시작할 때 Firebase에 연결
+        
         return true
     }
 

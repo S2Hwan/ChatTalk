@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         remoteConfig = RemoteConfig.remoteConfig()
         remoteConfig.configSettings = RemoteConfigSettings(developerModeEnabled: true)!
         
@@ -43,10 +43,9 @@ class ViewController: UIViewController {
         }
         box.image = #imageLiteral(resourceName: "starticon")
         // self.view.backgroundColor = UIColor(hex: "#000000")
-        
-        
     }
 
+    //MARK: - 알림창(서버 연결시 / 서버 연결 안될시)
     func displayWelcome() {
         
         let color = remoteConfig["splash_background"].stringValue
@@ -74,6 +73,7 @@ class ViewController: UIViewController {
 }
 
 // https://crunchybagel.com/working-with-hex-colors-in-swift-3/
+// 색 지정
 extension UIColor {
     convenience init(hex: String) {
         let scanner = Scanner(string: hex)

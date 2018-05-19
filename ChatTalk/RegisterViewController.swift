@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-
 class RegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -37,18 +36,18 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
             make.height.equalTo(20)
         }
         
+        // 상태바, 버튼 색깔 설정
         color = remoteConfig["splash_background"].stringValue
         statusBar.backgroundColor = UIColor(hex: color)
         joinButton.backgroundColor = UIColor(hex: color)
         cancelButton.backgroundColor = UIColor(hex: color)
-        
         
     }
     
     // 이미지 선택 버튼
     @IBAction func changeImageButton(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = true // 편집가능
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -68,17 +67,13 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
     @IBAction func joinButtonPressed(_ sender: UIButton) {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, err) in
             let uid = user?.uid
-            
             let image = UIImageJPEGRepresentation(self.imageView.image!, 0.1)
             
-            
             Storage.storage().reference().child("userImages").child(uid!).putData(image!, metadata: nil, completion: { (data, error) in
-                
                 let imageUrl = data?.downloadURL()?.absoluteString
                 let values = ["userName":self.nameTextField.text!,"profileImageUrl":imageUrl,"uid":Auth.auth().currentUser?.uid]
                 
                 Database.database().reference().child("users").child(uid!).setValue(values, withCompletionBlock: { (err, ref) in
-                    
                     if(err==nil){
                         self.cancel()
                     }
@@ -87,14 +82,13 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
         }
     }
     
-    func cancel() {
-         self.dismiss(animated: true, completion: nil)
-    }
-
     // cancel 버튼
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        
         cancel()
+    }
+    
+    func cancel() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
